@@ -1,5 +1,4 @@
 package edu.ex.tap.controller;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +27,6 @@ public class StudentController {
 	@Autowired
 	private CourseRepository courseRepository;
 	
-	
 	@GetMapping("/all")
 	public List<Student> all() {
 		return repository.findAll();
@@ -54,6 +52,12 @@ public class StudentController {
 		});
 	}
 	
+	@GetMapping("/search/{id}")
+	 public Student searchStudent(@PathVariable Long id) {
+	    
+	    return repository.findById(id).orElse(null);
+	 }
+	
 	@PutMapping("/{studentId}/enroll/{courseId}")
     public ResponseEntity<Student> enrollStudentToCourse(@PathVariable Long studentId, @PathVariable Long courseId) {
         Student student = repository.findById(studentId)
@@ -75,7 +79,6 @@ public class StudentController {
 	@DeleteMapping("/{id}")
 	public void deleteStudent(@PathVariable Long id) {
 	    repository.deleteById(id);
-	  }
-		
-	
+	}	
 }
+

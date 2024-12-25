@@ -1,6 +1,5 @@
 package edu.ex.tap.model.entity;
 
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +25,6 @@ public class Course {
 	@Column(length = 100)
 	private String career_cou;
 	
-
 	public Long getId_cou() {
 		return id_cou;
 	}

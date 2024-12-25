@@ -34,6 +34,12 @@ public class CourseController {
 		return repository.save(course);
 	}
 	
+	@GetMapping("/search/{id}")
+	 public Course searchStudent(@PathVariable Long id) {
+	    
+	    return repository.findById(id).orElse(null);
+	 }
+	
 	@PutMapping("/{id}")
 	public Course replaceCourse(@PathVariable Long id, @RequestBody Course course) {
 		return repository.findById(id)
